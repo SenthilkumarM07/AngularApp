@@ -35,7 +35,39 @@
  </ul>
 
 
- <p>Event binding</p>
+ <!--using ngfor to get the index of array-->
+ <h2>index of array</h2>
+ <ul>
+    <li *ngFor="let color of colors; let i =index">
+        {{i+1}}{{color}}
+    </li>
+ </ul>
+
+  <!--the first  and last element  of array-->
+   <h2>first element of array</h2>
+ <ul>
+    <li *ngFor="let color of colors; let isFirst =first; let isLast=last">
+        <strong *ngIf="isFirst">first :</strong>
+        <strong *ngIf="isLast">last :</strong>
+        {{color}}
+    </li>
+ </ul>
+
+   <!--the first  and last element  of array-->
+  <h2>Color by even odd using CSS</h2>
+ <ul>
+    <li *ngFor="let color of colors; let isEven = even; let isOdd = odd"
+        [ngClass]="{'evenItems': isEven, 'oddItems': isOdd}"
+        >
+        {{color}}
+    </li>
+ </ul>
+
+
+
+
+
+ <h2>Event binding</h2>
  <B>Count : {{count}}</B>
    <button (click)="Decrement()">-</button>  
  <button (click)="Increment()">+</button>

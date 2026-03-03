@@ -11,10 +11,17 @@ export class CounterComponent {
  count =signal(0);
 
  doubleCount:Signal <number>=computed(() => this.count() *2)
-
+ 
+ less10:Signal<number>=computed(()=> this.count()-10)
 
  increment()
  {
   this.count.set(this.count()+1)
  }
+
+ decrement()
+ {
+  this.count.set(this.count()-1)
+ }
+
 }
