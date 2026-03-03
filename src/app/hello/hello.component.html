@@ -1,0 +1,35 @@
+
+ <h1>Two-way Binding Example</h1>
+
+
+<!-- Text Input-->
+<label>Enter your name</label>
+<input type="text" [(ngModel)]="userName" placeholder="eg : senthil">
+
+<p>Hello {{userName}}</p>
+
+
+<!-- Checkbox -->
+<label>CheckBox
+    <input type="checkbox" [(ngModel)]="isSubscribed"> Subscribe
+</label>
+<p>status : {{isSubscribed? 'Subscribed ✅' : 'Not Subscribed ❌' }}</p>
+
+<!-- Select Dropdown-->
+ <label>Select your favorite color </label>
+ <select [(ngModel)]="favoriteColor">
+    <option value="Red">Red</option>
+    <option value="Blue">Blue</option>
+    <option value="Green">Green </option>
+ </select>
+
+ <p>Your favorite color is: {{ favoriteColor }}</p>   
+<!--using ngIf-->
+
+<p *ngIf="isSubscribed">Thank you for subscribing!</p>
+ <!--using ngfor-->
+ <ul>
+    <li *ngFor="let color of colors">
+        {{color}}
+    </li>
+ </ul>
