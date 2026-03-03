@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { HelloComponent } from './hello/hello.component';
+import { CounterComponent } from './Signals/counter/counter.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
-  //templateUrl: './app.component.html',
-  template: `<router-outlet></router-outlet>`,
+  imports: [RouterOutlet,HelloComponent,CounterComponent],
+  templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {

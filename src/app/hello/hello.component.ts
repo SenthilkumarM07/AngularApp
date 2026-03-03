@@ -14,4 +14,16 @@ export class HelloComponent {
   isSubscribed:boolean =false;
   favoriteColor:string ='red';
   colors:string[]=['Red', 'Blue', 'Green'];
+
+  count=0;
+  Increment()
+  {
+    this.count++
+  }
+
+  Decrement()
+  {
+    if(this.count>0)
+      this.count--
+  }
 }
