@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
+
 })
 export class EmployeeService {
 
   constructor(private http: HttpClient) { }
-  getapiurl='https://jsonplaceholder.typicode.com/posts'
+  getapiurl='https://jsonplaceholder.typicode.com/posts';
   getEmployee()
   {
     return [

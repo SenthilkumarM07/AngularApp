@@ -1,12 +1,13 @@
 import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EmployeeService } from '../employee.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-hello',
   standalone: true,
-  imports: [FormsModule,NgFor,NgIf,CommonModule],
+  imports: [FormsModule,ReactiveFormsModule,CommonModule],
   templateUrl: './hello.component.html',
   styleUrls: ['./hello.component.css']
 })
@@ -17,12 +18,12 @@ export class HelloComponent {
   colors:string[]=['Red', 'Blue', 'Green','White'];
 
   employees: any []=[];
-  constructor(private empservice:EmployeeService)
+  constructor(private emp:EmployeeService)
   {}
 
   ngOnInit()
   {
-    this.employees=this.empservice.getEmployee();
+    this.employees=this.emp.getEmployee();
   }
   count=0;
   Increment()
