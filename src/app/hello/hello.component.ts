@@ -16,8 +16,21 @@ export class HelloComponent {
   isSubscribed:boolean =false;
   favoriteColor:string ='red';
   colors:string[]=['Red', 'Blue', 'Green','White'];
-
+  imageUrl = 'https://picsum.photos/200';
   employees: any []=[];
+  status = 'loading';
+
+   isActive = true;
+
+   textColor = 'purple';
+  fontSize = '20px';
+
+  small="angular learning";
+  name = "ASDFGHFDSADFGHg";
+  today  = new Date();
+   price = 2500;
+
+   progress = 0.75;
   constructor(private emp:EmployeeService)
   {}
 

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
-import { HelloComponent } from './hello/hello.component';
 import { CounterComponent } from './Signals/counter/counter.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EmployeeComponent } from './employee/employee.component';
+import { HelloComponent } from './hello/hello.component';
 
 @Component({
   selector: 'app-root',

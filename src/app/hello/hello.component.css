@@ -5,3 +5,17 @@
 .oddItems {
   background-color: yellow;
 }
+
+.active{
+  background-color: grey;
+  color: white;
+  padding: 20px;
+
+}
+
+.inactive
+{
+  background-color: aqua;
+  color: azure;
+  padding: 20px;
+}

@@ -1,0 +1,26 @@
+<h3>Create Issue Login </h3>
+<div>
+    <label>Issue Type :</label>
+    <input type="text" [(ngModel)]="IssueType" value="eg:pandi issue">
+
+    <br><br>
+
+    <button (click)="createIssue()">Save</button>
+</div>
+
+<table border="2">
+    <tr>
+        <th>ID</th>
+        <th>TypeName</th>
+        <th>Description</th>
+        <th>createdBy</th>
+        <th>createdDate</th>
+    </tr>
+    <tr *ngFor="let type of types">
+        <td>{{type.id}}</td>
+        <td>{{type.typeName}}</td>
+        <td>{{type.description}}</td>
+        <td>{{type.createdBy}}</td>
+        <td>{{type.createdDtTime | date:'dd/MMM/yyyy'}}</td>
+    </tr>
+</table>
