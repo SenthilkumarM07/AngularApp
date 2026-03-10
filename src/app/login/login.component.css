@@ -1,0 +1,69 @@
+.login-container{
+  height: 100vb;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  background:#f4f6f9;
+}
+
+.login-card{
+    background-color: white;
+    padding: 50px;
+    width: 350px;
+    border-radius: 10px;
+    box-shadow:0 5px 15px rgba(40, 39, 40, 0.1);
+}
+
+h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group{
+  margin-bottom:20px;
+}
+
+
+input{
+    width:100%;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    background:#1976d2;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+
+/* button:disabled{
+  background:#ccc;
+} */
+
+small{
+  color:red;
+}
+
+
+.password-box{
+  position: relative;
+  width: 250px;
+}
+
+.password-box input{
+  width: 100%;
+  padding-left: 30px;
+  height: 30px;
+}
+
+.lock-icon{
+  position: absolute;
+  left: 8px;
+  top: 6px;
+}

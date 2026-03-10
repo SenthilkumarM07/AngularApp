@@ -3,6 +3,7 @@ import { CrudService } from '../crud.service';
 import { ApiEndpoints } from '../apis/api';
 import { CommonModule, NgFor } from '@angular/common';
 import { FormsModule, NgModel } from '@angular/forms';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-crud',
@@ -14,36 +15,47 @@ import { FormsModule, NgModel } from '@angular/forms';
 export class CrudComponent implements OnInit{
 
   types :any[]=[];
-//login
-UserName:string="";
-PassWord:string="";
-UserType:number=0;
 
 
+//issue
+recordId:number=0;
+description:string="";
 IssueType:string="";
+message:any='';
 
-  constructor(private CrudServ:CrudService) {}
+  constructor(private CrudServ:CrudService,private rout:Router) {}
 
 ngOnInit() {
   this.getIssues();
+  if(history.state.loginSuccess){
+    this.message = "Login Successful";
+
+    // clear message after showing
+    setTimeout(()=>{
+      this.message='';
+    },3000);
+  }
+
 }
 
 createIssue()
 {
   const body={
-    typeName:this.IssueType
+    typeName:this.IssueType,
+    description:this.description,
   }
   this.CrudServ.PostApi(ApiEndpoints.create,body)
   .subscribe(
     res=> 
       {
-        if(res.isSuccess)
-        {
-          alert("Issue Created Successfully");
+        // if(res.isSuccess)
+        // {
+          console.log(res.statusText)
+          alert(res.statusText);
           this.getIssues();
           this.IssueType="";
-        }
-        this.IssueType="";
+        //}
+        this.description="";
       }
   )
 }
@@ -52,30 +64,54 @@ getIssues()
   this.CrudServ.getApi(ApiEndpoints.select).subscribe(
     res=> {
       if(res.isSuccess)
-      {
-        this.types= res.body.details
+      {this.types=res.body.details;
+         const data = res.body;
       }
     }
   )
 }
 
-UserLogin()
+getById(Id:any)
 {
-  const body={
-      userName:this.UserName,
-      password:this.PassWord,
-      user_Type:this.UserType
-  }
-  this.CrudServ.PostApi(ApiEndpoints.Login,body)
+  this.CrudServ.getById(ApiEndpoints.selectById,Id)
   .subscribe(
-    res=>{
-      if(res.isSuccess)
+    res=>{(res.isSuccess)
       {
-        alert("Saved Successfully");
+        const data = res.body.details;
+        this.recordId = data.id;
+        this.IssueType = data.typeName;
+        this.description = data.description;
       }
-       
-      //  this.typeName="";
-      //   this.description="";
+    }
+  )
+}
+
+UpdateById(Id:any)
+{
+  const data={
+    typeName:this.IssueType,
+     description:this.description,
+  }
+  this.CrudServ.updateIssueById(ApiEndpoints.update,Id,data)
+  .subscribe(
+    res=>{(res.isSuccess)
+      {
+        alert("Updated Sucessfully");
+        this.getIssues();
+      }
+    }
+  )
+}
+
+DeleteIssueById(Id:any)
+{
+  this.CrudServ.deleteById(ApiEndpoints.delete,Id)
+  .subscribe(
+    res=>{(res.isSuccess)
+      {
+        alert(res.statusText);
+        this.getIssues();
+      }
     }
   )
 }
