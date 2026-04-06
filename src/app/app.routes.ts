@@ -4,6 +4,8 @@ import { CounterComponent } from './Signals/counter/counter.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { CrudComponent } from './crud/crud.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { NotificationComponent } from './notification/notification.component';
 
 export const routes: Routes = [
     { path: '', component:LoginComponent }  ,
@@ -11,4 +13,6 @@ export const routes: Routes = [
     { path: 'hello', component:HelloComponent }  ,
     {path: 'emp', component:EmployeeComponent} ,
     {path:'crud', component:CrudComponent},
+    {path:'reg', component:RegisterComponent},
+    {path:'not', component:NotificationComponent}
 ];

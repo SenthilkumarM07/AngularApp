@@ -1,0 +1,20 @@
+<h2>Reactive form Vailidation</h2>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()"> 
+    <label>Email</label>
+    <input type="text" formControlName="email"> 
+
+    <div *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.invalid">
+        
+        <small>Invalid email</small>
+    </div>
+     <br><br>
+    <label>Password</label>
+    <input type="password"  formControlName="password">
+    <div *ngIf="registerForm.get('email')?.touched && registerForm.get('password')?.invalid">
+        <small> Password is required</small>
+    </div>
+ <br><br>
+ <button type="submit" [disabled]="registerForm.invalid">
+Register
+ </button>
+</form>
